@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisicoquímica RPG: Crónicas de Mesada (Suite de Trabajos Prácticos)</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <!-- Barra de Estado Superior (HUD de Laboratorio) -->
+    <header class="hud-bar">
+      <div id="hud-stats-container" class="hud-stats"></div>
+
+      <div class="hud-controls">
+        <button id="btn-hub-return" class="hud-btn hud-btn-hub hidden" title="Volver al Hall Principal">
+          🏛️ Hall Principal
+        </button>
+        <button id="btn-libreta" class="hud-btn hud-btn-libreta" title="Ver Libreta Universitaria y Sellos de TP">
+          🪪 Libreta (0/2)
+        </button>
+        <button id="btn-logbook" class="hud-btn hidden" title="Ver tabla de datos de la misión actual">
+          📖 Bitácora
+        </button>
+        <button id="btn-mute" class="hud-btn" title="Activar/Desactivar sonido retro">
+          🔊 Sonido: ON
+        </button>
+      </div>
+    </header>
+
+    <!-- Escenario Interactivo 2D (Canvas) -->
+    <section class="viewport-frame">
+      <canvas id="scene-canvas" width="760" height="290"></canvas>
+    </section>
+
+    <!-- Caja de Diálogo Estilo RPG Retro -->
+    <section id="dialog-box" class="dialog-box">
+      <div class="portrait-wrapper">
+        <canvas id="portrait-canvas" width="64" height="64"></canvas>
+      </div>
+      <div class="dialog-content">
+        <div class="speaker-header">
+          <span id="speaker-name">El JTP (Profe de TP)</span>
+          <span id="speaker-role">Jefe de Trabajos Prácticos · Mate y Sello en mano</span>
+        </div>
+        <p id="dialog-text"></p>
+      </div>
+    </section>
+
+    <!-- Menú de Acciones y Opciones del Jugador -->
+    <section class="options-panel">
+      <div class="options-title">▸ Seleccioná tu acción en el laboratorio:</div>
+      <div id="options-container"></div>
+    </section>
+
+    <!-- Modal 1: Libreta Universitaria (Sellos de Aprobación de TPs) -->
+    <aside id="libreta-modal" class="modal-overlay hidden">
+      <div class="modal-header">
+        <h2>🪪 LIBRETA UNIVERSITARIA — CÁTEDRA DE FISICOQUÍMICA</h2>
+        <button id="btn-close-libreta" class="hud-btn">✕ Cerrar Libreta</button>
+      </div>
+      <div id="libreta-status-banner" class="libreta-banner"></div>
+      <div id="libreta-cards-container" class="libreta-cards-grid"></div>
+      <div class="libreta-footer">
+        <span>El progreso se guarda automáticamente en este navegador (localStorage).</span>
+        <button id="btn-reset-libreta" class="hud-btn hud-btn-danger">🗑️ Reiniciar Sellos</button>
+      </div>
+    </aside>
+
+    <!-- Modal 2: Bitácora Experimental de la Misión Activa -->
+    <aside id="logbook-modal" class="modal-overlay hidden">
+      <div class="modal-header">
+        <h2 id="logbook-title">📒 BITÁCORA EXPERIMENTAL</h2>
+        <button id="btn-close-logbook" class="hud-btn">✕ Cerrar Bitácora</button>
+      </div>
+      <div id="logbook-meta" class="logbook-meta"></div>
+      <div class="table-scroll">
+        <table class="lab-table">
+          <thead id="logbook-thead"></thead>
+          <tbody id="logbook-tbody"></tbody>
+        </table>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="game-footer">
+    Fisicoquímica: Crónicas de Mesada · Misión 1: El Desafío de Poggendorff (Daniell) · Misión 2: La Inversión de la Sacarosa (Polarimetría)
+  </footer>
+
+  <!-- Scripts modulares en orden (compatibles con GitHub Pages y doble clic local) -->
+  <script src="js/audio.js"></script>
+  <script src="js/missions_registry.js"></script>
+  <script src="js/hub_dialogs.js"></script>
+  <script src="js/hub_view.js"></script>
+  <script src="js/daniell_module.js"></script>
+  <script src="js/polar_module.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
