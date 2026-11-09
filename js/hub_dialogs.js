@@ -26,36 +26,36 @@ window.HubDialogs = {
   welcome: {
     speaker: 'jtp',
     mood: 'mate',
-    text: '«¡Qué hacés, fiera! ¡Qué alegría verte por el laboratorio! Pasá, dejá la mochila en el casillero y ponete el guardapolvo y las gafas de seguridad. Hoy tenemos jornada doble en la cátedra de Fisicoquímica: en la Mesada 1 tenés "El Desafío de Poggendorff" (Pila de Daniell por Oposición) y en la Mesada 2 tenés "La Inversión de la Sacarosa" (Cinética por Polarimetría). ¿Por cuál de las dos aventuras querés arrancar?»'
+    text: '«¡Te damos la bienvenida al laboratorio! ¡Por las barbas de Faraday, qué alegría tenerte por acá! Pasá, guardá las cosas en el casillero y ajustate el guardapolvo y las gafas de seguridad. Hoy tenemos jornada doble en la cátedra de Fisicoquímica: en la Mesada 1 tenés "El Desafío de Poggendorff" (Pila de Daniell por Oposición) y en la Mesada 2 tenés "La Inversión de la Sacarosa" (Cinética por Polarimetría). ¿Por cuál de las dos experiencias querés empezar?»'
   },
 
   whichFirstAdvice: {
     speaker: 'jtp',
     mood: 'explicando',
-    text: '«¡Cualquiera de los dos está perfecto, che! Pero si querés ir en orden de elegancia termodinámica, arrancate con la Misión 1 de Poggendorff: ahí vas a cablear el potenciómetro y medir la FEM con corriente neta cero (i₀ = 0) para ver cómo se cumple la aditividad de potenciales y la ley de Nernst. Después te vas a la Misión 2 a ver cómo los protones del HCl rompen la sacarosa y le dan vuelta el signo a la rotación óptica. ¡Elegí la que más te llame la atención!»'
+    text: '«¡Cualquiera de las dos experiencias está perfecta! Pero si querés seguir el camino de la elegancia termodinámica, te sugiero empezar por la Misión 1 de Poggendorff: ahí vas a cablear el potenciómetro y medir la FEM con corriente neta cero (i₀ = 0) para comprobar la aditividad de potenciales y la ley de Nernst. ¡Por la energía libre de Gibbs, es una belleza! Después pasás a la Misión 2 a ver cómo los protones del ácido hidrolizan la sacarosa e invierten la rotación óptica. ¡Elegí la que más te interese!»'
   },
 
   returnAfterTp1: {
     speaker: 'jtp',
     mood: 'feliz',
-    text: '«¡Impecable laburo con el potenciómetro de oposición, colega! Comprobaste la aditividad de potenciales y la recta de Nernst te dio una pinturita. ¡CLAC! Ya tenés el sello oficial del TP 1 estampado en tu Libreta Universitaria. Tomate un mate de descanso... y cuando estés listo, pasate a la Mesada 2 para liquidar "La Inversión de la Sacarosa".»'
+    text: '«¡Impecable trabajo con el potenciómetro de oposición! ¡Por el potencial estándar de reducción, la recta de Nernst dio perfecta y se verificó la aditividad de potenciales! ¡CLAC! Ya tenés el sello oficial del TP 1 estampado en tu Libreta Universitaria. Una breve pausa para tomar aire... y cuando quieras continuar, pasamos a la Mesada 2 para encarar "La Inversión de la Sacarosa".»'
   },
 
   returnAfterTp2: {
     speaker: 'jtp',
     mood: 'feliz',
-    text: '«¡Hermosa esa serie cinética de 20 puntos y la captura de α_∞! El cruce por cero cuando la fructosa dio vuelta la rotación fue una obra de arte fisicoquímica. ¡CLAC! Sello del TP 2 estampado con éxito en tu Libreta Universitaria. Si todavía te falta la Misión 1, dale que el potenciómetro de Poggendorff te está esperando.»'
+    text: '«¡Excelente esa serie cinética de 20 puntos y la determinación de α_∞! ¡Por las ecuaciones de Arrhenius, ese cruce por cero cuando la fructosa invirtió la rotación fue una verdadera belleza molecular! ¡CLAC! Sello del TP 2 estampado con éxito en tu Libreta Universitaria. Si todavía tenés pendiente la Misión 1, el potenciómetro de Poggendorff te espera en la otra mesada.»'
   },
 
   allCompletedFinale: {
     speaker: 'jtp',
     mood: 'feliz',
-    text: '«¡ATENCIÓN TODO EL LABORATORIO! ¡Dejen de pipetear un segundo! Nuestro colega acá presente acaba de completar LA TOTALIDAD de los Trabajos Prácticos de Fisicoquímica con precisión milimétrica, sin quemar el galvanómetro y sin volcar una sola gota de ácido. ¡MATERIA REGULARIZADA CON DIPLOMA DE HONOR! Mirá cómo brillan los dos sellos en tu Libreta Universitaria. ¡Felicitaciones, fiera!»'
+    text: '«¡ATENCIÓN EN TODO EL LABORATORIO! ¡Por la segunda ley de la termodinámica y el número de Avogadro! Quien está en esta mesada acaba de completar LA TOTALIDAD de los Trabajos Prácticos de Fisicoquímica con precisión milimétrica, cuidando el instrumental y sin derramar una sola gota de reactivo. ¡MATERIA REGULARIZADA CON DIPLOMA DE HONOR! Mirá cómo lucen los dos sellos en tu Libreta Universitaria. ¡Felicitaciones por semejante dedicación y rigor experimental!»'
   },
 
   returnMidway: {
     speaker: 'jtp',
     mood: 'mate',
-    text: '«Tranqui, che, nadie te corre. Tomate un respiro en el Hall Principal, revisá tu Libreta Universitaria y cuando quieras volvemos a las mesadas a seguir midiendo.»'
+    text: '«Con calma, nadie te apura en el laboratorio. Tomate una pausa en el Hall Principal, revisá tu Libreta Universitaria y cuando tengas ganas retomamos las mediciones en las mesadas.»'
   }
 };

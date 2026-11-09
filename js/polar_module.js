@@ -224,30 +224,30 @@ window.PolarModule = (function () {
     app.setDialog(
       'jtp',
       'mate',
-      '«¡Qué hacés, fiera! Bienvenido a la Mesada 2: Cinética de Inversión de la Sacarosa por Polarimetría. Vamos a cazar protones en acción. Pero antes de agarrar las pipetas, decime: ¿con qué concentración de ácido querés batirte a duelo hoy?»',
+      '«¡Te damos la bienvenida a la Mesada 2: Cinética de Inversión de la Sacarosa por Polarimetría! ¡Por las barbas de Faraday, qué alegría tenerte por acá! Vamos a seguir la catálisis ácida paso a paso. Antes de tomar las pipetas, decime: ¿con qué concentración de ácido querés realizar la experiencia hoy?»',
       [
         {
           label: '🧪 Elijo HCl 3 M (Tranqui, cinética a ritmo humano)',
           onClick: () => selectAcid('3M')
         },
         {
-          label: '⚡ Elijo HCl 6 M (Modo furioso, cinética el doble de rápida)',
+          label: '⚡ Elijo HCl 6 M (Modo activo, cinética el doble de rápida)',
           onClick: () => selectAcid('6M')
         },
         {
-          label: '🤔 Che, ¿por qué se le dice "inversión" si no damos vuelta el frasco?',
+          label: '🤔 ¿Por qué se denomina "inversión" a esta reacción?',
           onClick: () => {
             app.setDialog(
               'jtp',
               'explicando',
-              '«¡Linda pregunta de coloquio! La sacarosa original es recontra dextrógira (+66.4°). Pero a medida que el ácido la parte al medio, te genera glucosa (+52.7°) y fructosa (que es una bestia levógira de -92.0°). Al final, la fructosa le gana la pulseada a la glucosa y el ángulo neto te queda negativo. El signo de rotación SE INVIRTIÓ. Ahora sí, elegí el ácido.»',
+              '«¡Una pregunta clásica y fundamental! La sacarosa inicial es marcadamente dextrógira (+66.4°). A medida que el ácido cataliza la hidrólisis, se generan cantidades equimolares de glucosa (+52.7°) y fructosa (con un poder rotatorio fuertemente levógiro de -92.0°). Como la fructosa tiene mayor magnitud rotatoria negativa que el aporte positivo de la glucosa, el ángulo óptico neto cambia de signo y pasa a ser negativo. ¡Por la ley de Biot, el sentido de rotación se invirtió! Ahora sí, elijamos la concentración de ácido.»',
               [
                 {
                   label: '🧪 Elijo HCl 3 M (Tranqui, cinética a ritmo humano)',
                   onClick: () => selectAcid('3M')
                 },
                 {
-                  label: '⚡ Elijo HCl 6 M (Modo furioso, cinética el doble de rápida)',
+                  label: '⚡ Elijo HCl 6 M (Modo activo, cinética el doble de rápida)',
                   onClick: () => selectAcid('6M')
                 }
               ]
@@ -265,14 +265,14 @@ window.PolarModule = (function () {
       app.setDialog(
         'jtp',
         'feliz',
-        '«Bien ahí, una persona sensata. Con HCl 3 M (1.5 M en la mezcla) nos da tiempo a tomar un matecito entre lecturas sin quemarnos las pestañas. ¡Arrancamos con la preparación de las soluciones!»',
+        '«Una elección muy prudente. Con HCl 3 M (1.5 M efectivo en la mezcla), la cinética transcurre a un ritmo pausado y permite registrar las lecturas con tranquilidad. ¡Comencemos con la preparación de las soluciones!»',
         [{ label: '⚗️ Ir a la Mesada a Preparar las Soluciones', className: 'rpg-btn-accent', onClick: startPrepPhase }]
       );
     } else {
       app.setDialog(
         'jtp',
         'sorpresa',
-        '«¡Epa, qué picante venimos hoy! Duplicás los protones, duplicás la velocidad. La vida media se va a caer en picada a casi 10 minutos. ¡Vas a tener que estar re afilado porque esto vuela! ¡Vamos a preparar las soluciones!»',
+        '«¡Una opción con mucha energía! Al duplicar los protones, la velocidad se duplica y el tiempo de vida media desciende a unos 10 minutos. Habrá que tomar las lecturas con agilidad. ¡Vamos a preparar las soluciones!»',
         [{ label: '⚗️ Ir a la Mesada a Preparar las Soluciones', className: 'rpg-btn-accent', onClick: startPrepPhase }]
       );
     }
@@ -283,7 +283,7 @@ window.PolarModule = (function () {
     app.setDialog(
       'ayudante',
       'normal',
-      '«Pesaste 20.0 g de sacarosa pura en la balanza analítica y enrasaste con agua destilada en un matraz de 50 mL para obtener tu solución madre al 40% p/v. Ahora pipeteás 25 mL de sacarosa + 25 mL de agua destilada en un Erlenmeyer: ¡listo tu blanco al 20% p/v para medir α₀!»',
+      '«Disolviste 20.0 g de sacarosa pura en la balanza analítica hasta completar 50 mL de solución madre al 40% p/v. Ahora tomás 25 mL de esa solución y la mezclás en un Erlenmeyer con 25 mL de agua destilada: tenés tu blanco listo con sacarosa al 20% p/v para medir α₀.»',
       [
         {
           label: '👌 Solución Blanco Lista · Escuchar al JTP',
@@ -292,7 +292,7 @@ window.PolarModule = (function () {
             app.setDialog(
               'jtp',
               'serio',
-              '«Pará la mano un toque. Antes de meterle ácido a nada, tenemos que medir α₀ (el ángulo a tiempo cero con el blanco acuoso). Si medís mal este blanco, toda la cinética te va a dar una curva que parece una montaña rusa. Vamos al polarímetro.»',
+              '«Un momento antes de avanzar. Antes de incorporar el ácido, debemos medir α₀ (el ángulo a tiempo cero con el blanco acuoso). Si este valor inicial tiene error, afectará el cálculo de toda la serie cinética posterior. Acerquémonos al polarímetro.»',
               [
                 {
                   label: '🔭 Acercarse al Polarímetro de Laurent',
@@ -316,7 +316,7 @@ window.PolarModule = (function () {
     app.setDialog(
       'jtp',
       'explicando',
-      '«Asomate al ocular, che. ¿Ves ese círculo partido al medio? Es el campo bipartito de Laurent. Usá los botones, las flechas del teclado (←/→) o la ruedita del mouse para girar el analizador. Tenés que dejar las dos mitades EN LA MISMÍSIMA PENUMBRA OSCURA.»',
+      '«Asomate al ocular. Ese círculo dividido es el campo bipartito de Laurent. Usá los botones, las flechas del teclado (←/→) o la ruedita del mouse para rotar el analizador. El objetivo es igualar ambas mitades en la misma penumbra oscura, donde el ojo humano es mucho más sensible al contraste.»',
       getCalibrationButtons()
     );
   }
@@ -364,7 +364,7 @@ window.PolarModule = (function () {
               app.setDialog(
                 'jtp',
                 'feliz',
-                '«¡Una pinturita! Qué mano tenés, che. Guardate ese número bajo siete llaves que ahora se viene lo picante: la mezcla con el ácido.»',
+                '«¡Excelente calibración! Muy buen ajuste óptico. Registremos ese valor con precisión porque ahora llega el momento clave: el contacto con el ácido catalizador.»',
                 [
                   {
                     label: '🧪 Pasar a la Mesa de Reacción (Mezclar HCl)',
@@ -382,7 +382,7 @@ window.PolarModule = (function () {
       app.setDialog(
         'jtp',
         'alerta',
-        '«Pará, pará. Los dos lados están blancos como papel, te vas a encandilar la retina. La guía dice clarito que el ojo humano detecta el cambio mucho mejor en la penumbra oscura, cuando la luz casi se apaga. Seguí buscando cerca de +13.3°.»',
+        '«¡Cuidado con la vista! Ambos campos están en brillo total. La guía indica claramente que el ojo humano es mucho más sensible a las diferencias de intensidad en la penumbra oscura, cuando la iluminación es tenue. Busquemos el ajuste fino cerca de +13.3°.»',
         getCalibrationButtons()
       );
     } else if (fields.isClose) {
@@ -390,7 +390,7 @@ window.PolarModule = (function () {
       app.setDialog(
         'jtp',
         'explicando',
-        '«Tibio, tibio... Está casi igualado, pero si afinás el ojo se nota que un lado todavía tira más sombra. Dale con el ajuste fino de 0.1° hasta clavar la igualdad.»',
+        '«Muy cerca. Si observás con atención, una de las mitades conserva una leve sombra. Aplicá el ajuste fino de 0.1° hasta lograr la penumbra simétrica.»',
         getCalibrationButtons()
       );
     } else {
@@ -398,7 +398,7 @@ window.PolarModule = (function () {
       app.setDialog(
         'jtp',
         'sorpresa',
-        '«¡Pero por las barbas de Faraday, che! De un lado parece la cancha de Boca iluminada y del otro una boca de lobo. Metele mano a la perilla que estamos lejísimos.»',
+        '«¡Por las barbas de Faraday! La asimetría entre ambos campos es muy marcada; un semicírculo está totalmente brillante y el otro en sombras. Rotá el dial hacia los ángulos positivos cercanos a +13°.»',
         getCalibrationButtons()
       );
     }
@@ -414,7 +414,7 @@ window.PolarModule = (function () {
     app.setDialog(
       'jtp',
       'serio',
-      '«Llegó la hora de la verdad. Al momento exacto en que la primera gota de HCl toque los 25 mL de sacarosa, arranca la reacción. Tocá el botón para iniciar el vertido y el cronómetro, y esperá al 100% de mezcla para registrar Δt_m.»',
+      '«Llegó el instante del tiempo cero. En el momento exacto en que la solución ácida entre en contacto con los 25 mL de sacarosa, comienza la reacción. Presioná el botón para iniciar el vertido y el cronómetro, y esperá al 100% de mezcla para registrar Δt_m.»',
       getMixingButtons()
     );
   }
@@ -423,7 +423,7 @@ window.PolarModule = (function () {
     if (!st.isPouring && st.mixProgress === 0) {
       return [
         {
-          label: '🔴 ¡Mandale mecha! (Iniciar Vertido y Cronómetro)',
+          label: '🔴 ¡Iniciar Vertido y Cronómetro!',
           className: 'rpg-btn-accent',
           onClick: startPouringTimer
         }
@@ -433,8 +433,8 @@ window.PolarModule = (function () {
       return [
         {
           label: canStop
-            ? '⏹️ ¡Mezcla Homogénea! Clavar Cronómetro (Δt_m)'
-            : '⏳ Volcando y agitando... esperá al 100%',
+            ? '⏹️ ¡Mezcla Homogénea! Registrar Cronómetro (Δt_m)'
+            : '⏳ Volcando y homogeneizando... esperá al 100%',
           className: canStop ? 'rpg-btn-accent' : '',
           onClick: stopPouringTimer
         }
@@ -473,7 +473,7 @@ window.PolarModule = (function () {
       app.setDialog(
         'jtp',
         'alerta',
-        '«¡Pará un cachito! Todavía no terminaste de volcar y homogeneizar el ácido. Esperá hasta que el medidor de mezcla llegue al 100%.»',
+        '«¡Un momento! Todavía no se completó el vertido ni la homogeneización del ácido. Esperá hasta que el indicador de mezcla llegue al 100%.»',
         getMixingButtons()
       );
       return;
@@ -492,7 +492,7 @@ window.PolarModule = (function () {
     app.setDialog(
       'jtp',
       'feliz',
-      `«¡Impecable! Cronómetro clavado en Δt_m = ${st.deltaTmSec.toFixed(2)} s. Aplicamos la corrección de tiempo cero de la guía (t₀ = Δt_m / 2 = ${t0Corr.toFixed(2)} s). A cada lectura del reloj le descontamos esos ${t0Corr.toFixed(2)} segundos.»`,
+      `«¡Impecable! Registro cronometrado en Δt_m = ${st.deltaTmSec.toFixed(2)} s. Aplicamos el criterio cinético de la guía para el tiempo cero (t₀ = Δt_m / 2 = ${t0Corr.toFixed(2)} s). A cada tiempo registrado en el cronómetro se le descontará esta corrección.»`,
       [
         {
           label: '🧪 Enjuagar y Llenar el Tubo Polarimétrico (10 cm)',
@@ -509,7 +509,7 @@ window.PolarModule = (function () {
     app.setDialog(
       'ayudante',
       'normal',
-      '«Enjuagaste la celda de 10 cm (1.0 dm) dos veces con una pequeña porción de la mezcla reactiva para evitar dilución residual, la llenaste al ras y le clavaste la tapa a rosca... Pero mirá a trasluz.»',
+      '«Enjuagaste la celda de 10 cm (1.0 dm) dos veces con una pequeña porción de la mezcla reactiva para evitar dilución residual, la llenaste al ras y colocaste la tapa a rosca... Pero mirá a trasluz.»',
       [
         {
           label: '👀 Mirar el Tubo Polarimétrico a Contraluz',
@@ -520,7 +520,7 @@ window.PolarModule = (function () {
             app.setDialog(
               'jtp',
               'alerta',
-              '«¡Por el fantasma de Arrhenius! Te quedó una burbuja gigante plantada justo en el medio del tubo. Si el haz de luz pega ahí, la dispersión óptica nos va a mandar directo a marzo. ¿Qué hacés?»',
+              '«¡Por el fantasma de Arrhenius! Quedó una burbuja de aire justo en el centro del tubo. Si el haz de luz incide ahí, la dispersión óptica va a arruinar las lecturas. ¿Cómo procedemos?»',
               getBubbleButtons()
             );
           }
@@ -532,39 +532,39 @@ window.PolarModule = (function () {
   function getBubbleButtons() {
     return [
       {
-        label: '🤷 Dejala ahí, total la luz pasa por los costados',
+        label: '🤷 Dejarla ahí, la luz pasa por los costados',
         onClick: () => {
           window.AudioEngine.playError();
           app.setDialog(
             'jtp',
             'enojado',
-            '«¿Vos me estás cargando? Si metés esa burbuja al polarímetro, la refracción te va a tirar valores del planeta Marte y la ley de Malus se va al tacho. Pensá un segundo, che.»',
+            '«¡Cuidado! Si dejamos esa burbuja en el camino óptico, la refracción distorsionará por completo la ley de Malus y las medidas rotatorias. Pensemos en la geometría del tubo polarimétrico.»',
             getBubbleButtons()
           );
         }
       },
       {
-        label: '🌪️ Sacudir la celda como si fuera un pomo de mayonesa',
+        label: '🌪️ Agitar la celda con fuerza para desarmarla',
         onClick: () => {
           window.AudioEngine.playError();
           st.bubbleState = 'foamy';
           app.setDialog(
             'ayudante',
             'alerta',
-            '«¡Desastre total! La burbuja grande se desarmó en cincuenta microburbujas espumosas. El tubo parece una soda. Tuviste que vaciar y volver a llenar... y la burbuja grande volvió a aparecer. Probá con más sutileza.»',
+            '«Al agitar con fuerza, la burbuja grande se dividió en numerosas microburbujas espumosas que enturbian el líquido. Hubo que vaciar y volver a enrasar el tubo... y la burbuja volvió a aparecer. Probemos con una maniobra más suave.»',
             getBubbleButtons()
           );
         }
       },
       {
-        label: '👌 Inclinar el tubo con cariño hacia la ampolla reservorio',
+        label: '👌 Inclinar el tubo suavemente hacia la ampolla reservorio',
         onClick: () => {
           st.bubbleState = 'cleared';
           window.AudioEngine.playFanfare();
           app.setDialog(
             'jtp',
             'feliz',
-            '«¡Claro que sí! Para eso tiene esa jorobita ensanchada el tubo polarimétrico. La burbuja quedó atrapada arriba y el camino óptico de 1.0 dm está más limpio que quirófano. ¡Al polarímetro!»',
+            '«¡Exacto! Para eso está diseñada la ampolla ensanchada del tubo polarimétrico. La burbuja quedó alojada en la parte superior y el camino óptico de 1.0 dm quedó totalmente despejado. ¡Vamos al polarímetro!»',
             [
               {
                 label: '🔬 Colocar Celda en la Cuna e Iniciar Toma de 20 Puntos',
@@ -588,7 +588,7 @@ window.PolarModule = (function () {
     app.setDialog(
       'jtp',
       'mate',
-      '«Bueno, fiera, como ya demostraste que sabés alinear el polarímetro a mano como los dioses, ahora dejamos que el analizador trabaje en modo rápido para no estar acá hasta la noche. Andá dándole al botón de avance para capturar los 20 puntos de la reacción.»',
+      '«Habiendo verificado el manejo manual del ocular de Laurent, habilitamos el modo ágil del analizador para registrar sistemáticamente los 20 puntos cinéticos de la reacción. Pulsá el botón de avance para ir registrando las lecturas.»',
       getKineticsButtons()
     );
   }
@@ -676,22 +676,22 @@ window.PolarModule = (function () {
         clearInterval(st.autoSweepId);
         st.autoSweepId = null;
       }
-      msg = `«¡Punto 20/20 clavado (α_t = ${row.alphaT.toFixed(2)}°)! Ya tenés toda la curva cinética. Ahora habilitamos el salto temporal de 24 horas para medir el ángulo a tiempo infinito (α_∞).»`;
+      msg = `«¡Punto 20/20 registrado (α_t = ${row.alphaT.toFixed(2)}°)! Ya tenemos toda la curva cinética. Ahora habilitamos el salto temporal de 24 horas para medir el ángulo a tiempo infinito (α_∞).»`;
       mood = 'feliz';
     } else if (crossedZeroNow) {
-      msg = `«¡PARÁ TODO! Mirá el dial en el punto ${ptNum}: α_t = ${row.alphaT.toFixed(2)}°. ¡Acaba de cruzar el cero! La solución se volvió oficialmente LEVÓGIRA. La fructosa liberada (-92°) ya pesa más que la sacarosa y la glucosa juntas.»`;
+      msg = `«¡Atención al dial en el punto ${ptNum}: α_t = ${row.alphaT.toFixed(2)}°! ¡Acaba de cruzar el cero óptico! La solución pasa a ser nítidamente LEVÓGIRA. El aporte rotatorio negativo de la fructosa liberada (-92°) supera a la sacarosa remanente y a la glucosa.»`;
       mood = 'sorpresa';
     } else if (ptNum === 1) {
-      msg = `«Punto 1 (t = ${(tCronSec / 60).toFixed(1)} min): α_t = +${row.alphaT.toFixed(2)}°. Recién arranca el baile. La sacarosa todavía manda, pero ya empezó a caer.»`;
+      msg = `«Punto 1 (t = ${(tCronSec / 60).toFixed(1)} min): α_t = +${row.alphaT.toFixed(2)}°. Comienza el seguimiento cinético: la sacarosa predomina en la mezcla, pero su concentración ya comienza a descender.»`;
       mood = 'mate';
     } else if (ptNum <= 6) {
-      msg = `«Punto ${ptNum}/20 registrado: α_t = ${row.alphaT >= 0 ? '+' : ''}${row.alphaT.toFixed(2)}°. Mirá cómo baja esa rotación. El HCl no tiene piedad con los enlaces glucosídicos.»`;
+      msg = `«Punto ${ptNum}/20 registrado: α_t = ${row.alphaT >= 0 ? '+' : ''}${row.alphaT.toFixed(2)}°. La rotación desciende sostenidamente a medida que los protones catalizan la hidrólisis de los enlaces glucosídicos.»`;
       mood = 'explicando';
     } else if (ptNum <= 14) {
-      msg = `«Punto ${ptNum}/20: α_t = ${row.alphaT >= 0 ? '+' : ''}${row.alphaT.toFixed(2)}°. Ya se hidrolizó el ${(row.x * 100).toFixed(1)}% de la sacarosa inicial. ¡Seguí dándole!»`;
+      msg = `«Punto ${ptNum}/20: α_t = ${row.alphaT >= 0 ? '+' : ''}${row.alphaT.toFixed(2)}°. Ya se hidrolizó el ${(row.x * 100).toFixed(1)}% de la sacarosa inicial. ¡Continuemos registrando!»`;
       mood = 'mate';
     } else {
-      msg = `«Punto ${ptNum}/20: α_t = ${row.alphaT.toFixed(2)}° (conversión ${(row.x * 100).toFixed(1)}%). La curva ya va planchando asintóticamente.»`;
+      msg = `«Punto ${ptNum}/20: α_t = ${row.alphaT.toFixed(2)}° (conversión ${(row.x * 100).toFixed(1)}%). La velocidad de cambio disminuye al aproximarse al equilibrio de la hidrólisis completa.»`;
       mood = 'normal';
     }
 
@@ -707,7 +707,7 @@ window.PolarModule = (function () {
     app.setDialog(
       'jtp',
       'feliz',
-      `«¡Al día siguiente en el laboratorio! Llegamos a t = ∞ (24 hs). La sacarosa se hidrolizó toda (x ≈ 1.0). Clavamos la lectura final: α_∞ = ${st.alphaInfMeasured.toFixed(2)}°. ¡Tenemos la serie completa, maestro!»`,
+      `«¡Al día siguiente en el laboratorio! Llegamos a t = ∞ (24 hs). La hidrólisis de la sacarosa es completa (x ≈ 1.0). Registramos la lectura final: α_∞ = ${st.alphaInfMeasured.toFixed(2)}°. ¡Por la constante de Arrhenius y la ley de Biot, tenemos la serie completa!»`,
       getKineticsButtons()
     );
   }
@@ -718,7 +718,7 @@ window.PolarModule = (function () {
     app.setDialog(
       'jtp',
       'feliz',
-      '«Che, posta, impecable laburo. Mirá los gráficos en pantalla. Descargate el archivo .txt con todos los datos para tu informe y sellá el TP 2 en tu Libreta Universitaria para volver al Hall Principal.»',
+      '«¡Excelente labor experimental! Mirá los gráficos en pantalla: el ajuste lineal refleja con claridad la cinética de pseudo-primer orden. Descargá el archivo .txt con los datos tabulados para tu informe y sellá el TP 2 en tu Libreta Universitaria para volver al Hall Principal.»',
       getFinalButtons()
     );
   }

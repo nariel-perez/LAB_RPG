@@ -172,7 +172,7 @@ window.App = (function () {
     });
 
     btns.push({
-      label: '🤔 Che JTP, ¿por cuál de los dos TPs me recomendás empezar?',
+      label: '🤔 Profe, ¿por cuál de las dos experiencias me conviene empezar?',
       onClick: () => {
         const adv = window.HubDialogs.whichFirstAdvice;
         setDialog(adv.speaker, adv.mood, adv.text, getHubButtons());

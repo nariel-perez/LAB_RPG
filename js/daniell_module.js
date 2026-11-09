@@ -148,19 +148,18 @@ window.DaniellModule = (function () {
     app.setDialog(
       'jtp',
       'mate',
-      '«¡Bienvenido a la Mesada 1: El Desafío de Poggendorff! Hoy vamos a medir la FEM de la Pila de Daniell en condiciones de reversibilidad termodinámica por el Método de Oposición, sin clavarle un tester común.»',
+      '«¡Te damos la bienvenida a la Mesada 1: El Desafío de Poggendorff! Por las barbas de Faraday, hoy vamos a medir la FEM de la Pila de Daniell en condiciones de estricta reversibilidad termodinámica mediante el Método de Oposición, sin conectar un voltímetro común.»',
       [
         {
-          label: '🔌 ¿Por qué no usamos un multímetro común y listo?',
+          label: '🔌 ¿Por qué no usamos un multímetro digital común y listo?',
           onClick: () => {
             app.setDialog(
               'jtp',
               'explicando',
-              '«¡Si le mandás un voltímetro común hacés circular corriente! Eso genera gradientes, sobrepotenciales y calor, sacando a la pila del equilibrio. En cambio, por oposición oponemos un potencial igual y contrario hasta que el galvanómetro marca corriente CERO (i₀ = 0). Recién ahí se cumple que ΔG = -nFE_pila.»',
+              '«¡Por el principio de Le Chatelier, ni se te ocurra! Si conectás un voltímetro común, hacés circular corriente. Eso genera gradientes de concentración en los electrodos, sobrepotenciales y calor, alejando a la pila del equilibrio termodinámico. Por oposición, en cambio, aplicamos un potencial idéntico y en sentido contrario hasta que el galvanómetro marca corriente CERO (i₀ = 0). Recién en esa condición se cumple con total rigor que ΔG = -nFE_pila.»',
               [
                 {
                   label: '🧫 ¡Clarísimo! Armemos la celda en la Caja de Petri',
-                  className: 'rpg-btn-accent',
                   onClick: startCellPrep
                 }
               ]
@@ -173,7 +172,7 @@ window.DaniellModule = (function () {
             app.setDialog(
               'jtp',
               'feliz',
-              '«¡Qué placer cuando traen la guía leída! Corriente cero es reversibilidad estricta: medimos la FEM pura sin caída óhmica. ¡Vamos a preparar los electrodos y el puente salino!»',
+              '«¡Exactamente! Qué gusto da cuando leen la guía con anticipación. Corriente neta cero significa reversibilidad termodinámica estricta: no hay paso apreciable de carga, no hay caída óhmica interna y medimos la FEM pura en equilibrio. ¡Vamos a preparar los electrodos y el puente salino!»',
               [
                 {
                   label: '🧫 Preparar Electrodos y Caja de Petri (KCl sat.)',
@@ -195,7 +194,7 @@ window.DaniellModule = (function () {
 
     const oxideOpts = [
       {
-        label: '🪨 Pasarles lija fina a los alambres de Zn y Cu hasta dejarlos brillantes',
+        label: '🪨 Pasarles lija fina a los alambres de Zn y Cu hasta dejarlos con brillo metálico',
         onClick: () => {
           st.electrodesSanded = true;
           window.AudioEngine.playSandScratch();
@@ -209,7 +208,7 @@ window.DaniellModule = (function () {
           app.setDialog(
             'jtp',
             'alerta',
-            '«¡Ni en joda! Si dejás esa película pasivante de óxido, el potencial de interfase metal/solución te va a tirar fruta. ¡Agarrá la lija y sacale lustre!»',
+            '«¡Por las barbas de Faraday, de ninguna manera! Si dejás esa película pasivante de óxido, el potencial de interfase metal/solución va a ser totalmente inestable. ¡Hay que pasarle lija fina hasta dejar el metal con brillo vivo!»',
             oxideOpts
           );
         }
@@ -219,7 +218,7 @@ window.DaniellModule = (function () {
     app.setDialog(
       'jtp',
       'serio',
-      '«Acá tenés la caja de Petri con solución saturada de KCl (nuestro puente salino). Pero mirá ese alambre de Zinc: parece sacado de un naufragio, está tapado de óxido.»',
+      '«Acá tenemos la caja de Petri con solución saturada de KCl (nuestro puente salino). Pero observemos ese alambre de Zinc: tiene una capa superficial opaca de óxido y carbonato básico que debemos retirar antes de medir.»',
       oxideOpts
     );
   }
@@ -234,7 +233,7 @@ window.DaniellModule = (function () {
           app.setDialog(
             'jtp',
             'feliz',
-            '«¡Pase libre para los iones K⁺ y Cl⁻! El puente salino hace contacto electrolítico franco sin resistencia parásita. Ahora viene el desafío de los cables banana.»',
+            '«¡Excelente! Pase libre para la migración de los iones K⁺ y Cl⁻. El puente salino hace contacto franco y sin resistencia parásita. Ahora pasemos a los cables del circuito.»',
             [
               {
                 label: '🔌 Pasar al Banco del Potenciómetro (Conectar Circuito)',
@@ -251,7 +250,7 @@ window.DaniellModule = (function () {
           app.setDialog(
             'jtp',
             'alerta',
-            '«¡No soplés que vas a salpicar KCl saturado por toda la mesada, che! Un toquecito con el dedo a la vaina de vidrio y listo.»',
+            '«¡Cuidado! No soplamos las cajas de Petri porque salpicamos solución por toda la mesada. Basta con un toquecito suave a la vaina de vidrio y la burbuja sube sola.»',
             bubbleOpts
           );
         }
@@ -261,7 +260,7 @@ window.DaniellModule = (function () {
     app.setDialog(
       'ayudante',
       'normal',
-      '«¡Los electrodos quedaron relucientes! Sumergiste las vainas en la caja de Petri con KCl saturado... Pero ojo: en la punta inferior de la vaina quedó atrapada una burbuja de aire cortando el contacto líquido.»',
+      '«¡Los electrodos quedaron impecables! Sumergiste las vainas en la caja de Petri con KCl saturado... Pero atención: en la punta capilar inferior quedó atrapada una burbuja de aire cortando el contacto electrolítico.»',
       bubbleOpts
     );
   }
@@ -277,7 +276,7 @@ window.DaniellModule = (function () {
     app.setDialog(
       'jtp',
       'explicando',
-      '«Hacé clic en un borne y luego en otro para conectar los 6 cables banana: 1) Fuente CC (+/-) a Alim (+/-). 2) Galvanómetro (+/-) a Galv (+/-). 3) ¡OJO CON LA PILA!: Positivo con Positivo y Negativo con Negativo para que las FEM se OPONGAN.»',
+      '«Hacé clic en un borne y luego en otro para tender los 6 cables banana: 1) Fuente CC (+/-) a Alim (+/-). 2) Galvanómetro (+/-) a Galv (+/-). 3) ¡Mucha atención con la Pila!: Cátodo (+) con Pila (+) y Ánodo (-) con Pila (-) para que las fuerzas electromotrices actúen en OPOSICIÓN.»',
       getCircuitButtons()
     );
   }
@@ -316,7 +315,7 @@ window.DaniellModule = (function () {
           app.setDialog(
             'jtp',
             'feliz',
-            '«¡Listo el pollo! Ahí te dejé los 6 cables conectados en oposición perfecta. Ahora vamos a calibrar los 10.0 mA de la malla principal con la Pila Patrón de Weston.»',
+            '«¡Circuito completado con éxito! Quedaron los 6 cables conectados en oposición perfecta. Ahora vamos a calibrar los 10.0 mA de la malla principal con la Pila Patrón de Weston.»',
             [
               {
                 label: '⚖️ Pasar a la Calibración con la Pila de Weston',
@@ -341,7 +340,7 @@ window.DaniellModule = (function () {
     if (hasConn('cell_pos', 'pot_pila_neg') || hasConn('cell_neg', 'pot_pila_pos')) {
       return {
         ok: false,
-        reason: '«¡Pará la mano! Pusiste el positivo de la pila al negativo del potenciómetro. Así los voltajes no se oponen, ¡se suman como locomotora! Conectá Cátodo (+) con Pila (+) y Ánodo (-) con Pila (-).»'
+        reason: '«¡Atención con la polaridad! Conectaste el positivo de la pila al negativo del potenciómetro. De esa forma los voltajes no se oponen, sino que se suman en serie. Conectá Cátodo (+) con Pila (+) y Ánodo (-) con Pila (-).»'
       };
     }
     if (hasConn('src_pos', 'pot_alim_neg') || hasConn('src_neg', 'pot_alim_pos')) {
@@ -374,7 +373,7 @@ window.DaniellModule = (function () {
       app.setDialog(
         'jtp',
         'feliz',
-        '«¡Qué hermosura de circuito! Positivo con positivo en oposición perfecta y el galvanómetro en serie listo para detectar el cero. Ahora vamos a calibrar la corriente con la Pila Patrón de Weston.»',
+        '«¡Impecable! Por las leyes de Kirchhoff, el conexionado en oposición está perfecto y el galvanómetro en serie listo para detectar corriente nula. Ahora vamos a calibrar la corriente con la Pila Patrón de Weston.»',
         [
           {
             label: '⚖️ Pasar a la Calibración con la Pila Patrón de Weston',
@@ -391,7 +390,7 @@ window.DaniellModule = (function () {
           'jtp',
           'mate',
           res.reason +
-            ' «Bueno, no te me frustres que a todos se nos cruzaron los cables la primera vez. Si querés seguir probando dale, pero si te cansaste tocá el botón de asistencia y te lo cableo yo en un segundo.»',
+            ' «No hay problema, a cualquiera le pasa en las primeras prácticas de conexionado. Podés seguir intentando con tranquilidad, o si preferís avanzar, tenés disponible el botón de asistencia para completar el cableado automáticamente.»',
           getCircuitButtons()
         );
       } else {
@@ -416,7 +415,7 @@ window.DaniellModule = (function () {
     app.setDialog(
       'jtp',
       'explicando',
-      '«Para que los diales de R₁ y R₂ lean voltios directamente, necesitamos que por la malla principal circulen exactamente 10.0 mA. Clavamos los diales en la FEM de la Weston a 20 °C (1.0186 V). Mové R_cal (con botones o mouse) y tocá el pulsador P hasta que la aguja quede en cero.»',
+      '«Para que los diales de R₁ y R₂ lean voltios directamente, necesitamos que por la malla principal circulen exactamente 10.0 mA. Clavamos los diales en la FEM de la Weston a 20 °C (1.0186 V). Mové R_cal (con botones o mouse) y tocá el pulsador P hasta que la aguja permanezca en cero.»',
       getWestonButtons()
     );
   }
@@ -440,12 +439,12 @@ window.DaniellModule = (function () {
         onClick: checkWestonCalibration
       },
       {
-        label: '🤔 Che, ¿y por qué tienen que circular justo 10 mA?',
+        label: '🤔 ¿Por qué deben circular exactamente 10.0 mA y no otro valor?',
         onClick: () => {
           app.setDialog(
             'jtp',
             'explicando',
-            '«¡Linda deducción de la ley de Ohm, papá! El dial R₁ tiene 15 resistencias fijas en serie de 10 Ω cada una, y R₂ es una resistencia continua de 0 a 10 Ω. Por la ley de Ohm (ΔV = i · R), si circulan exactamente i = 10 mA = 0.010 A, cada resistencia de 10 Ω da una caída de ΔV = 0.010 A × 10 Ω = 0.100 V. ¡Así cada paso de R₁ vale directamente 0.1 V y R₂ barre de 0.000 a 0.100 V sin hacer cuentas!»',
+            '«¡Una deducción impecable de la ley de Ohm! Fijate en la arquitectura interna: el dial R₁ tiene 15 resistencias fijas en serie de 10 Ω cada una, y R₂ es una resistencia continua de 0 a 10 Ω. Según la ley de Ohm (ΔV = i · R), si circulan exactamente i = 10 mA = 0.010 A, cada resistencia de 10 Ω genera una caída de ΔV = 0.010 A × 10 Ω = 0.100 V. ¡Por el ingenio de Poggendorff, cada paso de R₁ pasa a leer directamente 0.1 V y R₂ cubre de 0.000 a 0.100 V sin hacer conversiones matemáticas!»',
             getWestonButtons()
           );
         }
@@ -463,7 +462,7 @@ window.DaniellModule = (function () {
       app.setDialog(
         'jtp',
         'feliz',
-        '«¡Pulsás P y la aguja queda clavada en el cero como una estatua! Corriente de 10.0 mA fijada con éxito en la Malla I. De acá en más, ¡NO SE TOCA MÁS R_cal! Pasamos la llave selectora a PILA y arrancamos con las 5 pilas.»',
+        '«¡Al pulsar P la aguja queda en cero como una estatua! Corriente de 10.0 mA fijada con éxito en la Malla I. De acá en más, ¡no se toca más R_cal! Pasamos la llave selectora a posición PILA y comenzamos las mediciones de las 5 celdas.»',
         [
           {
             label: '🔋 Arrancar Medición Manual de las 5 Pilas (Pila 1 a 5)',
@@ -477,7 +476,7 @@ window.DaniellModule = (function () {
       app.setDialog(
         'jtp',
         'alerta',
-        '«Todavía circula corriente por el galvanómetro (i₀ ≠ 0). Fijate para qué lado tira la aguja y ajustá R_cal hasta llegar a 50.0 Ω (10.00 mA).»',
+        '«Todavía circula corriente por el galvanómetro (i₀ ≠ 0). Observá para qué lado deflexiona la aguja y ajustá R_cal hasta llegar a 50.0 Ω (10.00 mA).»',
         getWestonButtons()
       );
     }
@@ -555,16 +554,16 @@ window.DaniellModule = (function () {
 
       let msg = '';
       if (pila.id === 1) {
-        msg = `«¡Clavado en E₁ = ${totalV.toFixed(3)} V! El electrodo de calomel saturado (ECS) actúa acá como cátodo (+0.2445 V a 20 °C) frente al Zinc. ¡Vamos con la Pila 2!»`;
+        msg = `«¡Anotá en la libreta: E₁ = ${totalV.toFixed(3)} V! El electrodo de calomel saturado (ECS) actúa acá como cátodo (+0.2445 V a 20 °C) frente al Zinc. Con esto después vas a poder despejar el potencial individual del electrodo de Zinc. ¡Cambiemos los electrodos para la Pila 2!»`;
       } else if (pila.id === 2) {
-        msg = `«¡Clavado en E₂ = ${totalV.toFixed(3)} V! Mirá qué bajito dio (con R₁ = 0.0 V), porque el cobre y el calomel tienen potenciales cercanos. ¡Ahora se viene la Pila 3 (Daniell completa)!»`;
+        msg = `«¡Clavado en E₂ = ${totalV.toFixed(3)} V! Dio bajo (con R₁ = 0.0 V) porque el calomel y el cobre tienen potenciales bastante cercanos. Ahora observemos con atención: se viene la Pila 3, la Daniell completa con las mismas concentraciones.»`;
       } else if (pila.id === 3) {
         const sum12 = (st.measuredEmfs[1] + st.measuredEmfs[2]).toFixed(3);
-        msg = `«¡PARÁ LA MÁQUINA Y MIRÁ ESTO! E₁ = ${st.measuredEmfs[1].toFixed(3)} V, E₂ = ${st.measuredEmfs[2].toFixed(3)} V, y la suma da E₁ + E₂ = ${sum12} V ≈ E₃ (${totalV.toFixed(3)} V). ¡El principio de ADITIVIDAD se cumple frente a tus ojos! Vamos con la Pila 4.»`;
+        msg = `«¡Momento cumbre de la experiencia! E₁ = ${st.measuredEmfs[1].toFixed(3)} V, E₂ = ${st.measuredEmfs[2].toFixed(3)} V, y la suma da E₁ + E₂ = ${sum12} V ≡ E₃ (${totalV.toFixed(3)} V). ¡Por la energía libre de Gibbs, el principio de ADITIVIDAD de potenciales se verifica experimentalmente en la mesada! Vamos con la serie de dilución en la Pila 4.»`;
       } else if (pila.id === 4) {
-        msg = `«¡E₄ = ${totalV.toFixed(3)} V registrado! Bajaste la concentración de Cu²⁺ de 0.1 M a 0.01 M y la FEM cayó tal como predice Nernst. ¡Vamos por la quinta y última!»`;
+        msg = `«¡E₄ = ${totalV.toFixed(3)} V registrado! Al reducir la concentración de Cu²⁺ de 0.1 M a 0.01 M, el potencial disminuye exactamente como predice la ecuación de Nernst: menor actividad de reactivo catódico, menor fuerza impulsora termodinámica. ¡Vamos por la quinta y última!»`;
       } else {
-        msg = `«¡E₅ = ${totalV.toFixed(3)} V! Completaste las 5 determinaciones manuales por oposición con pulso de neurocirujano. ¡Pasemos a ver los gráficos y exportar tus datos crudos!»`;
+        msg = `«¡E₅ = ${totalV.toFixed(3)} V! ¡Determinación completada con gran pulso y precisión! Ya tenemos las 5 medidas requeridas para trazar la recta de Nernst y verificar la aditividad en pantalla.»`;
       }
 
       const nextIdx = st.currentPilaIndex + 1;
@@ -588,11 +587,11 @@ window.DaniellModule = (function () {
       }
     } else {
       window.AudioEngine.playPulseKey(false);
-      const dir = diffV < 0 ? 'izquierda (te falta potencial en los diales)' : 'derecha (te pasaste de potencial)';
+      const dir = diffV < 0 ? 'izquierda (falta potencial en los diales)' : 'derecha (te pasaste de potencial)';
       app.setDialog(
         'jtp',
         'alerta',
-        `«¡Pará la mano! La aguja todavía patea hacia la ${dir}. Ajustá R₁ y R₂ hasta que al pulsar P el galvanómetro marque i₀ = 0.»`,
+        `«Todavía no alcanzamos el equilibrio: la aguja deflexiona hacia la ${dir}. Ajustá R₁ y R₂ hasta que al pulsar P el galvanómetro marque i₀ = 0.»`,
         getMeasureButtons()
       );
     }
@@ -604,7 +603,7 @@ window.DaniellModule = (function () {
     app.setDialog(
       'jtp',
       'feliz',
-      '«Mirá lo que son esos gráficos en pantalla, para poner en un cuadrito. Descargate el archivo .txt con los potenciales y concentraciones crudas para tu informe, y sellá tu Libreta Universitaria para volver al Hall Principal.»',
+      '«Ahí están los gráficos de verificación en pantalla. En el archivo descargable (.txt) te llevás los datos crudos de potencial y concentración para que en tu informe calcules las actividades con los coeficientes γ± y la pendiente de Nernst. ¡Sellá tu Libreta Universitaria para volver al Hall Principal!»',
       getFinalButtons()
     );
   }
