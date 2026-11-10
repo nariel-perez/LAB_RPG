@@ -1266,7 +1266,7 @@ window.DaniellModule = (function () {
       if (st.phase === 'circuit') {
         let clicked = null;
         for (let i = 0; i < TERMINALS.length; i++) {
-          if (Math.hypot(pt.x - TERMINALS[i].x, pt.y - TERMINALS[i].y) <= 22) {
+          if (Math.hypot(pt.x - TERMINALS[i].x, pt.y - TERMINALS[i].y) <= 28) {
             clicked = TERMINALS[i];
             break;
           }

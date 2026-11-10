@@ -350,13 +350,38 @@ window.App = (function () {
     const rect = dom.sceneCanvas.getBoundingClientRect();
     const scaleX = dom.sceneCanvas.width / rect.width;
     const scaleY = dom.sceneCanvas.height / rect.height;
+    let clientX = e.clientX;
+    let clientY = e.clientY;
+    if (e.touches && e.touches.length > 0) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else if (e.changedTouches && e.changedTouches.length > 0) {
+      clientX = e.changedTouches[0].clientX;
+      clientY = e.changedTouches[0].clientY;
+    }
     return {
-      x: (e.clientX - rect.left) * scaleX,
-      y: (e.clientY - rect.top) * scaleY
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY
     };
   }
 
   function bindEvents() {
+    // Botón para descartar el aviso de girar pantalla en móviles
+    const btnDismissRotate = document.getElementById('btn-dismiss-rotate');
+    if (btnDismissRotate) {
+      btnDismissRotate.addEventListener('click', () => {
+        document.body.classList.add('ignore-rotate-prompt');
+        window.AudioEngine.playSelect();
+      });
+    }
+
+    // Desbloquear sintetizador de audio en el primer toque en móviles (iOS/Android)
+    const unlockMobileAudio = () => {
+      window.AudioEngine.playTextBlip('jtp');
+      window.removeEventListener('touchstart', unlockMobileAudio);
+    };
+    window.addEventListener('touchstart', unlockMobileAudio, { passive: true });
+
     // Clic rápido en el texto para completar el efecto máquina de escribir
     document.getElementById('dialog-box').addEventListener('click', e => {
       if (e.target.tagName === 'BUTTON') return;
@@ -424,6 +449,37 @@ window.App = (function () {
     });
 
     window.addEventListener('mouseup', () => {
+      const mod = getActiveModule();
+      if (mod && typeof mod.onMouseUp === 'function') {
+        mod.onMouseUp();
+      }
+    });
+
+    // Soporte táctil directo en el Canvas (arrastre de diales R1, R2, R_cal y Laurent)
+    dom.sceneCanvas.addEventListener(
+      'touchstart',
+      e => {
+        const mod = getActiveModule();
+        if (mod && typeof mod.onCanvasMouseDown === 'function') {
+          mod.onCanvasMouseDown(getCanvasCoords(e));
+        }
+      },
+      { passive: true }
+    );
+
+    dom.sceneCanvas.addEventListener(
+      'touchmove',
+      e => {
+        const mod = getActiveModule();
+        if (mod && typeof mod.onMouseMove === 'function') {
+          mod.onMouseMove(getCanvasCoords(e));
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
+
+    window.addEventListener('touchend', () => {
       const mod = getActiveModule();
       if (mod && typeof mod.onMouseUp === 'function') {
         mod.onMouseUp();

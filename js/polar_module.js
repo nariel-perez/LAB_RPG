@@ -1352,11 +1352,32 @@ window.PolarModule = (function () {
       }
     },
 
-    onCanvasMouseDown: function () {},
-    onMouseMove: function () {},
-    onMouseUp: function () {},
-    onCanvasClick: function (pt) {
+    onCanvasMouseDown: function (pt) {
       if (st.phase === 'calibration' && !st.calibDone) {
+        st.isDraggingDial = true;
+        st.dragStartX = pt.x;
+        st.dragMoved = false;
+      }
+    },
+
+    onMouseMove: function (pt) {
+      if (st.phase === 'calibration' && !st.calibDone && st.isDraggingDial) {
+        const dx = pt.x - st.dragStartX;
+        if (Math.abs(dx) >= 8) {
+          const steps = Math.trunc(dx / 8);
+          rotateDial(steps * 0.1);
+          st.dragStartX += steps * 8;
+          st.dragMoved = true;
+        }
+      }
+    },
+
+    onMouseUp: function () {
+      st.isDraggingDial = false;
+    },
+
+    onCanvasClick: function (pt) {
+      if (st.phase === 'calibration' && !st.calibDone && !st.dragMoved) {
         if (pt.x >= 450 && pt.x <= 620 && pt.y >= 65 && pt.y <= 225) {
           rotateDial(pt.x < 535 ? -0.1 : 0.1);
         }
